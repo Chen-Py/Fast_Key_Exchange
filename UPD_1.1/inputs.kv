@@ -1,0 +1,16 @@
+#:kivy 1.11.1
+#:import titleFont fonts.titleFont
+#:import Label kivy.uix.label
+#:import TextInput kivy.uix.textinput
+<LabelInput>:
+	cols: 1
+	size: 130,100
+	text: input.text
+	Label:
+		id: label
+		color: 0, 0, 0.7, 3
+		text: root.title
+		font_size: 30
+		font_name: titleFont
+	TextInput:
+		id: input

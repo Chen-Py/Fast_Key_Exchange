@@ -1,0 +1,189 @@
+#: kivy 1.11.1
+#: import RoundedButton buttons.RoundedButton
+#: import titleFont fonts.titleFont
+#: import LabelInput inputs.LabelInput
+
+<GLayout>:
+	size: 500, 300
+
+<Page>:
+	font_name: titleFont
+	canvas.before:
+		Color:
+			rgb: 0, 0.7, 1
+		Rectangle:
+			size: root.size
+
+<BackButton>:
+	text: "Back to Menu"
+	font_size: 20
+	size: 200, 40
+	on_press: self.back()
+
+<SubmitButton>:
+	text: "Submit"
+	font_size: 20
+	size: 100, 40
+
+<Menu_Page>:
+	Label:
+		font_name: titleFont
+		text: "M E N U"
+		font_size: 70
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 6 / 7
+
+	GLayout:
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.4
+        spacing: (10, 10)
+        size_hint: 0.6, 0.6
+		cols: 1
+		RoundedButton:
+			font_size: 25
+			text: "Make Private Code"
+			on_press: self.parent.parent.move_to("Make Private Code")
+		RoundedButton:
+			font_size: 25
+			text: "Make Communication Code"
+			on_press: self.parent.parent.move_to("Make Communication Code")
+		RoundedButton:
+			font_size: 25
+			text: "Make Key"
+			on_press: self.parent.parent.move_to("Make Key")
+
+<Private_Page>
+	input_N: input_N
+	input_m: input_m
+	input_p: input_p
+	result: result
+	Label:
+		font_name: titleFont
+		text: "Make Private Code"
+		font_size: 40
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.9
+	BackButton:
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 1 / 8
+	SubmitButton:
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.55
+		on_press: self.parent.submit()
+	GridLayout:
+		size: 390, 100
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.75
+		rows: 1
+		LabelInput:
+			id: input_N
+			title: "N"
+		LabelInput:
+			id: input_m
+			title: "m"
+		LabelInput:
+			id: input_p
+			title: "p"
+	Label:
+		id: result
+		markup: True
+		text: ""
+		color: 0, 0, 0,4, 3
+		font_size: 20
+		font_name: titleFont
+		halign: 'center'
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.35
+
+<Communication_Page>
+	input_N: input_N
+	input_m: input_m
+	input_P: input_P
+	input_q: input_q
+	result: result
+	Label:
+		font_name: titleFont
+		text: "Make Communication Code"
+		font_size: 40
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.9
+	BackButton:
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 1 / 8
+	SubmitButton:
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.55
+		on_press: self.parent.submit()
+	GridLayout:
+		size: 520, 100
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.75
+		rows: 1
+		LabelInput:
+			id: input_N
+			title: "N"
+		LabelInput:
+			id: input_m
+			title: "m"
+		LabelInput:
+			id: input_P
+			title: "P"
+		LabelInput:
+			id: input_q
+			title: "q"
+	Label:
+		id: result
+		markup: True
+		color: 0, 0, 0,4, 3
+		text: ""
+		font_size: 20
+		font_name: titleFont
+		halign: 'center'
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.34
+<Key_Page>
+	
+	input_Q: input_Q
+	input_m: input_m
+	input_p: input_p
+	result: result
+
+	Label:
+		font_name: titleFont
+		text: "Make Key"
+		font_size: 40
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.9
+	BackButton:
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 1 / 8
+
+	SubmitButton:
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.55
+		on_press: self.parent.submit()
+
+	GridLayout:
+		size: 520, 100
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.75
+		rows: 1
+		LabelInput:
+			id: input_Q
+			title: "Q"
+		LabelInput:
+			id: input_m
+			title: "m"
+		LabelInput:
+			id: input_p
+			title: "p"
+	Label:
+		id: result
+		markup: True
+		color: 0, 0, 0,4, 3
+		text: ""
+		font_size: 20
+		font_name: titleFont
+		halign: 'center'
+		center_x: self.parent.center_x
+		center_y: self.parent.height * 0.35
