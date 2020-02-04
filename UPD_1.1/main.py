@@ -9,36 +9,12 @@ import configinit
 from kivy.lang import Builder
 from buttons import RoundedButton
 from kivy.properties import ObjectProperty
+from fkealgo import FKE
 
 Builder.load_file('menuwindow.kv')
 
 configinit.init()
-class FKE:
-    def pow(self, n, a, mod):
-        if a == 0:
-            return 1
-        if a % 2 == 0:
-            return (n * pow(n, a - 1, mod)) % mod
-        if (a % 2 == 0):
-            temp = pow(n, a / 2, mod)
-            return (temp * temp) % mod
-    
-    def Make_Private_Code(self, N, m, p):
-        P = pow(N, p, m)
-        self.Private_Open_Code = (N, m, P)
-        self.Private_Secret_Code = p
-        return (self.Private_Open_Code, self.Private_Secret_Code)
 
-    def Make_Communication_Code(self, N, m, P, q):
-        Q = pow(N, q, m)
-        K = pow(P, q, m)
-        self.Communication_Open_Code = Q
-        self.Communication_Secret_Code = q
-        self.Key = K
-        return (self.Communication_Open_Code, self.Communication_Secret_Code, self.Key)
-    def Make_Key(self, Q, m, p):
-        self.Key = pow(Q, p, m)
-        return self.Key
 
 algo = FKE()
 sm = ScreenManager()
